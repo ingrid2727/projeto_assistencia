@@ -1,0 +1,3 @@
+Página index (primeira página): login.php
+Página cadastro (segunda página): cadastro.php
+Página home (terceira página): area.php
