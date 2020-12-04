@@ -1,26 +1,23 @@
 <?php
 
-    
-   
-
 include ('conexao.php');
 
+$nome = $_POST['nome']  ;
+$status = $_POST['status']    ;
+$orcamento = $_POST['orcamento ']   ;
+$valor = $_POST['valor']    ;
 
-
-
-$tipo = $_POST['tipo ']  ;
-$modelo = $_POST['modelo']  ;
-$problema= $_POST['problema']  ;
-$senha = $_POST['senha']  ;
-$acessorios = $_POST['acessorios']  ;
-$imei = $_POST['imei']  ;
-$cd_cliente = $_POST['cd_cliente']  ;
-$dt_entrada= $_POST['dt_entrada']  ;
-
-
-
-$sql= "INSERT  into  aparelho(Nm_tipo_modelo,Nm_modelo, Nm_prolema, cd_senha, ds_acessorios ,Nu_imei,cd_castro_cliente, cd_castro_cliente,dt_entrada) 
-values('$tipo','$modelo ','$problema','$senha','$acessorios','$imei','$cd_cliente','$dt_entrada')";
+$sql= "INSERT into  orcamento ( 
+Nm_cliente , 
+Ds_status_orcamento, 
+ds_orcamento,
+Usuario_cd_usuario,
+vl_orcamento) 
+  VALUES (
+      '$nome',
+      '$status',
+      '$orcamento',
+      '$valor')";
 
 if(   mysql_query($sql,$conexao)  )
 {

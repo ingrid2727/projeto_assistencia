@@ -1,13 +1,21 @@
 <?php
-
 include ('conexao.php');
 
-$nome = $_POST['nm_cliente']  ;
-$telefone = $_POST['nu_telefone']  ;
+$nome = $_POST['nome']  ;
+$telefone = $_POST['telefone']  ;
 $cpf = $_POST['cpf']  ;
 $rg = $_POST['rg']    ;
 
-$sql= "INSERT into  cliente (nm_cliente,nu_telefone,cpf,rg) values('$nome','$telefone','$cpf','$rg')";
+$sql= "INSERT INTO cliente (
+    nm_cliente,
+    nu_telefone,
+    cpf,
+    rg)
+    VALUES(
+        '$nome',
+        '$telefone',
+        '$cpf',
+        '$rg')";
 
 if(   mysql_query($sql,$conexao)  )
 {

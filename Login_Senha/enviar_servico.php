@@ -1,5 +1,5 @@
 <?php
-$inlineRadioOptions = "option3";
+$Ds_aprovacao_aparelhos_cliente = "option3";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,16 +16,19 @@ $inlineRadioOptions = "option3";
     <title></title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   
-    <img src="imagem/log.png" class="rounded mx-auto d-block" alt="" width="200" height="90">
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+  <img src="imagem/log.png" class="rounded mx-auto d-block" alt="" width="200" height="90">
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+  <ul class="nav nav-pills">
       <li class="nav-item active">
         <a class="nav-link"href="enviar_cliente.php">Cadastro de cliente<span class="sr-only">(Página atual)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="enviar_orcamento.php">Cadastro de Orçamento</a>
+        <a class="nav-link" href="enviar_aparelho.php">Cadastro de Aparelhos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="enviar_orcamento.php">Cadastro de orcamentos</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="enviar_servico.php">Serviços</a>
@@ -38,23 +41,28 @@ $inlineRadioOptions = "option3";
       </li>
      
     </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search"  id="myInput" onkeyup="myFunction()" placeholder="Pesquisar" aria-label="Pesquisar">
-        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Pesquisar</button>
-      </form>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
+    <form class="form-inline my-2 my-lg-0" action="pesquisar.php">
+      <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Pesquisar</button>
+      </ul>
+    </form>
+
+  </div>
+</nav>
     </div>
   </nav>
   
  
   </div>
-  <div  class="container text-center"   id="myTable" >
-    <h2 aria-label="arial" align="center"   id="myTable">Lista de Serviço</h2>
-    <table class="table table-striped table-sm" >
+  <div  class="container text-center"   >
+    <h2 aria-label="arial" align="center"  >Lista de Serviço</h2>
+    <table class="table table-striped table-sm" id="table" >
           <thead >
             <tr class="header" >
               <th ></th>
               <th ><button class="btn btn-outline-primary my-2 my-sm-0" onclick="filterSelection('Todos')"> Mostrar Tudo</button></th>
-              <th ><button class="btn btn-outline-primary my-2 my-sm-0" onclick="filterSelection('Cliente')">Clientes </button></th>
+              <th ><button class="btn btn-outline-primary my-2 my-sm-0" onclick="filterSelection('Cliente')" name=>Clientes </button></th>
               <th ><button class="btn btn-outline-primary my-2 my-sm-0" onclick="filterSelection('Modelo')">Modelo </button></th>
               <th ><button class="btn btn-outline-primary my-2 my-sm-0" onclick="filterSelection('Analise')"> Em Analise</button> </th>
               <th ><button class="btn btn-outline-primary my-2 my-sm-0" onclick="filterSelection('Aprovados')"> Aprovados </button></th>
@@ -65,25 +73,29 @@ $inlineRadioOptions = "option3";
             <tr>
               <th >#</th>
               <th id="write" name="">Cliente</th>
-              <th id="greem" name="">Modelo</th>
+              <th id="greem"name="" >Modelo</th>
               <th id="greem" name="">Em Analise</th>
-              <th id="red" name="">Negado </th>
+              <th id="red" name="">  Negado </th>
               <th id="black" name=""> Aprovado</th>
               <th id="pink" name="">Concluido</th>
-              <th>!--options--</th>
+              <th>--Opção--</th>
             </tr>
           </thead>
           <tbody>
             <tr > 
-            <div id="didi">
+            <div  class="container">
+            <form action="recebe_servico.php" method="post">
+            <div class="form-check">
+
               <td>1</td>
-              <td id="write">Maxwell</td>
-              <td id="write">Motorola</td>
-              <td> <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onclick="verificar()"></td>
-              <td><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"></td>
-              <td><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"></td>
-              <td><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4"></td>
-              <td><p  class="nav-link" id="brow" ><a href="enviar_garantia.php">Gerar garantia</p></td>
+              <td name=""id="write">Maxwell</td>
+              <td name=""id="blo">Motorola</td>
+              
+              <td> <input class="form-check-input" type="radio" name="Ds_aprovacao_aparelhos_cliente" id="inlineRadio1" value="option1" ></td>
+              <td>  <input class="form-check-input" type="radio" name="Ds_aprovacao_aparelhos_cliente" id="inlineRadio2" value="option2" ></td>
+              <td>  <input class="form-check-input" type="radio" name="Ds_aprovacao_aparelhos_cliente" id="inlineRadio3" value="option3" ></td>
+              <td>  <input class="form-check-input" type="radio" name="Ds_aprovacao_aparelhos_cliente" id="inlineRadio4" value="option4"></td>
+              <td> <button class="btn btn-outline-primary my-2 my-sm-0"  type="submit" value="Garantia" class="btn btn-default">Garantia</button></td>
           </div>
                   </tr>
         </div>
@@ -94,28 +106,28 @@ $inlineRadioOptions = "option3";
                 <div class="form-check">
                     <label class="form-check-label">
                         <input type="radio"
-                               name="inlineRadioOptions"
+                               name="Ds_status_orcamento"
                                value="option1"
                                class="form-check-input"
-                               <?php echo ($inlineRadioOptions == "option1") ? "checked" : null; ?>/> EM ANALISE
+                               <?php echo ($Ds_status_orcamento == "option1") ? "checked" : null; ?>/> EM ANALISE
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
                         <input type="radio"
-                               name="inlineRadioOptions"
+                               name="Ds_status_orcamento"
                                value="option2"
                                class="form-check-input"
-                               <?php echo ($inlineRadioOptions == "option2") ? "checked" : null; ?>/> APROVADO
+                               <?php echo ($Ds_status_orcamento == "option2") ? "checked" : null; ?>> APROVADO
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
                         <input type="radio"
-                               name="inlineRadioOptions"
+                               name="Ds_status_orcamento"
                                value="option3"
                                class="form-check-input"
-                               <?php echo ($inlineRadioOptions == "option3") ? "checked" : null; ?>/> CONCLUÍDO
+                               <?php echo ($Ds_status_orcamento == "option3") ? "checked" : null; ?>/> CONCLUÍDO
                     </label>
                 </div>
                 <div class="form-group">
@@ -126,5 +138,22 @@ $inlineRadioOptions = "option3";
     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="codigo/servico.js"></script>
+
+
+  <script>
+// Função para mudar o conteúdo de t2
+function modifyText() {
+  var t2 = document.getElementById("write");
+  t2.firstChild.nodeValue = "";    
+}
+ 
+// Função para adicionar uma espera de evento em t
+function load() { 
+  var el = document.getElementById("table"); 
+  el.addEventListener("click", modifyText, false); 
+} 
+
+document.addEventListener("DOMContentLoaded", load, false);
+</script>
+
 </html>

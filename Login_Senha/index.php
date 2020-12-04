@@ -14,21 +14,21 @@
 
 <body>
 
-<ul>
-      <li><a href="enviar_cadastro.php">Cadastrar</a></li>
-      <li><a href="enviar_login.php">Login</a></li>
-   </ul>
- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+   
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   
   <img src="imagem/log.png" class="rounded mx-auto d-block" alt="" width="200" height="90">
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+  <ul class="nav nav-pills">
       <li class="nav-item active">
         <a class="nav-link"href="enviar_cliente.php">Cadastro de cliente<span class="sr-only">(Página atual)</span></a>
       </li>
-     
       <li class="nav-item">
-        <a class="nav-link" href="enviar_orcamento.php">Cadastro de Orçamento</a>
+        <a class="nav-link" href="enviar_aparelho.php">Cadastro de Aparelhos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="enviar_orcamento.php">Cadastro de orcamentos</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="enviar_servico.php">Serviços</a>
@@ -41,17 +41,22 @@
       </li>
      
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
+    <form class="form-inline my-2 my-lg-0" action="pesquisar.php">
       <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
       <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Pesquisar</button>
+      </ul>
     </form>
+
   </div>
 </nav>
+
 
 
 <div id="bemvindo">
 
   <div  class="container text-center"  >
+
   <h1>Sejá bem vindo a sua área de<br/> desenvolvimento</h1>
 </div>
 </div>

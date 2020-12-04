@@ -16,13 +16,12 @@
 
   <div class="mainlogin">
    
-    <form name="f1" class="form1" action="index.php" method="POST">
+    <form name="f1" class="form1" action="recebe_login.php" method="POST">
     <p class="entrar" align="center">Mv Technology</p> 
     <img src="imagem/log.png" class="rounded mx-auto d-block" alt="" width="350" height="100">
-    <input class="un" name="email" type="Email" align="center" placeholder="Email" required>
+    <input class="un" name="email" type="text" align="center" placeholder="Email" required>
     <input class="senha" name="senha" type="password" align="center" placeholder="Senha" id="psw" 
-    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-    title="Deve conter pelo menos um número e uma letra maiúscula e pelo menos 8 ou mais caracteres"  required>
+    required>
     <div align="center" >
       <table>
         <tr>
@@ -32,9 +31,9 @@
       </tr>
       </table>
     </div>
-     
-     <input type="submit" class="enviar" align="center" name="login" value="Entrar" 
-      onclick="document.getElementById('id01').style.display='none'" >
+    <input  class="enviar" align="center"  type="submit" value="entrar" id="entrar" name="entrar"
+      onclick="document.getElementById('id01').style.display='none'"><br>
+   
       <p class="forgot" align="center"><a href="enviar_cadastro.php">Não tem cadastro? Clique Aqui</p>        
     </div>
     

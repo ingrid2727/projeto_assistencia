@@ -1,45 +1,41 @@
-<?php  session_start(); ?>  // session starts with the help of this function 
-
 <?php
+$nome = $_POST['nome'];
+$email = $_POST['email'];
+$senha = MD5($_POST['senha']);
+$connect = mysql_connect('localhost','root','usbw');
+$db = mysql_select_db('assistencia');
+$query_select = "SELECT email FROM usuario WHERE email = '$email'";
+$select = mysql_query($query_select,$connect);
+$array = mysql_fetch_array($select);
+$logarray = $array['email'];
 
-if(isset($_SESSION['use']))    
-                              
- {
-    header("Location:index.php"); 
- }
-else
-{
-    include 'enviar_cadastro.php';
-}
+if($email == "" || $email == null){
+  echo"<script language='javascript' type='text/javascript'>
+  alert('O campo email deve ser preenchido');window.location.href='
+  enviar_cadastro.php';</script>";
 
-if(isset($_POST['login']))    
-{
-     $email = $_POST['email'];
-     $senha = $_POST['senha'];
+  }else{
+    if($logarray == $email){
 
-    if(isset($_POST["email"]) && isset($_POST["senha"])){
-    $file = fopen('data.txt', 'r');
-    $good=false;
-    while(!feof($file)){
-        $line = fgets($file);
-        $array = explode(";",$line);
-    if(trim($array[0]) == $_POST['email'] && trim($array[1]) == $_POST['senha']){
-            $good=true;
-            break;
-        }
-    }
+      echo"<script language='javascript' type='text/javascript'>
+      alert('Esse email já existe');window.location.href='
+      enviar_cadastro.php';</script>";
+      die();
 
-    if($good){
-    $_SESSION['use'] = $email;
-        echo '<script type="text/javascript"> window.open("index.php","_self");</script>';  
     }else{
-        echo "Email ou senha inválido";
-    }
-    fclose($file);
-    }
-    else{
-        include 'enviar_cadastro.php';
-    }
+      $query = "INSERT INTO usuario (nome,email,senha,fl_administrador) VALUES ('$email','$senha')";
+      $insert = mysql_query($query,$connect);
 
-}
+      if($insert){
+        echo"<script language='javascript' type='text/javascript'>
+        alert('Usuário cadastrado com sucesso!');window.location.
+        href='enviar_cadastro.php'</script>";
+      }else{
+        echo"<script language='javascript' type='text/javascript'>
+        alert('Não foi possível cadastrar esse usuário');window.location
+        .href='enviar_cadastro.php'</script>";
+      }
+    }
+  }
 ?>
+ 
