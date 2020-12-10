@@ -1,7 +1,9 @@
 <?php
 $nome = $_POST['nome'];
 $email = $_POST['email'];
-$senha = MD5($_POST['senha']);
+$senha = $_POST['senha'];
+$fl_administrador = $_POST['fl_administrador'];
+	
 $connect = mysql_connect('localhost','root','usbw');
 $db = mysql_select_db('assistencia');
 $query_select = "SELECT email FROM usuario WHERE email = '$email'";
@@ -23,8 +25,11 @@ if($email == "" || $email == null){
       die();
 
     }else{
-      $query = "INSERT INTO usuario (nome,email,senha,fl_administrador) VALUES ('$email','$senha')";
+      $query = "INSERT INTO usuario (nome,email,senha,fl_administrador) VALUES ('$nome','$email','$senha','$fl_administrador')";
       $insert = mysql_query($query,$connect);
+      //print_r($query);
+      //exit;
+
 
       if($insert){
         echo"<script language='javascript' type='text/javascript'>
@@ -37,5 +42,9 @@ if($email == "" || $email == null){
       }
     }
   }
+  
+include('fecha.php');
+
+echo "<script>self.location='enviar_cadastro.php'</script>";
 ?>
  

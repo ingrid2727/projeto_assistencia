@@ -14,8 +14,7 @@
 
 <body>
 
-
-   
+     
    <nav class="navbar navbar-expand-lg navbar-light bg-light">
   
   <img src="imagem/log.png" class="rounded mx-auto d-block" alt="" width="200" height="90">
@@ -47,7 +46,6 @@
       <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Pesquisar</button>
       </ul>
     </form>
-
   </div>
 </nav>
 
@@ -56,9 +54,32 @@
 <div id="bemvindo">
 
   <div  class="container text-center"  >
+   <?php
 
+$email_cookie = $_COOKIE['email'];
+
+if(isset($email_cookie)){
+
+  echo"Bem-Vindo, $email_cookie <br>";
+
+  echo"Essas informações <font color='red'>PODEM</font> ser acessadas por você";
+
+}else{
+
+  echo"Bem-Vindo, convidado <br>";
+
+  echo"Essas informações <font color='red'>NÃO PODEM</font> ser acessadas por você";
+
+  echo"<br><a href='enviar_login.php'>Faça Login</a> Para ler o conteúdo";
+
+}
+
+?>
   <h1>Sejá bem vindo a sua área de<br/> desenvolvimento</h1>
 </div>
 </div>
+
+
+
 </body>
 </html>
